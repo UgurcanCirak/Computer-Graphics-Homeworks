@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html;charset=utf-8" >
+<title>Midterm Assignment</title>
+
+<script id="vertex-shader" type="x-shader/x-vertex">
+attribute vec4 vPosition;
+
+
+uniform float scaleX;
+uniform float scaleY;
+uniform float posX;
+uniform float posY;
+
+void main() {
+    gl_Position = vec4(posX + (vPosition.x * scaleX), posY + (vPosition.y * scaleY), 0.2, 2.0);
+	
+
+    
+// TODO: get required variables
+}
+</script>
+
+<script id="fragment-shader" type="x-shader/x-fragment">
+precision mediump float;
+uniform vec4 vColor;
+void main()
+{
+    gl_FragColor = vColor;
+}
+
+</script>
+
+<script type="text/javascript" src="../Common/webgl-utils.js"></script>
+<script type="text/javascript" src="../Common/initShaders.js"></script>
+<script type="text/javascript" src="../Common/MV.js"></script>
+<script type="text/javascript" src="midterm.js"></script>
+</head>
+
+<body style="background-color:powderblue;">
+
+<div>
+Uğurcan Çırak , 190315051
+</div>
+<table>
+	<td>
+	<canvas id="gl-canvas" width="650" height="650">
+		Oops ... your browser doesn't support the HTML5 canvas element
+	</canvas>
+	</td>
+	<td>				
+		<div> <strong>---- Color ----</strong> </div><br>
+		<div>
+		R: 0<input id="redSlider" type="range"
+		 min="0" max="1" step="0.05" value="1" />1
+		</div> 
+		<div>
+		G: 0<input id="greenSlider" type="range"
+		 min="0" max="1" step="0.05" value="0" />1
+		</div> 
+		<div>
+		B: 0<input id="blueSlider" type="range"
+		 min="0" max="1" step="0.05" value="0" />1
+		</div>
+		<br>
+				
+		<div> <strong>---- Transformations ----</strong> </div><br>			
+		
+		<div>Position</div> 
+		<div>X: -1<input id="posX" type="range"
+		 min="-1" max="1" step="0.05" value="0" />1</div> 
+		<div>Y: -1<input id="posY" type="range"
+		 min="-1" max="1" step="0.05" value="0" />1</div><br> 
+
+		<div>Scale</div> 
+		<div>X: 0<input id="scaleX" type="range"
+		 min="0" max="2" step="0.05" value="1" />2</div> 
+		<div>Y: 0<input id="scaleY" type="range"
+		 min="0" max="2" step="0.05" value="1" />2</div><br>
+
+		<br>
+	</td>
+	
+</table>
+<div>
+</body>
+</html>

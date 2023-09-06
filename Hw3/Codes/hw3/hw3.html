@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+<html>
+
+<script id="vertex-shader" type="x-shader/x-vertex">
+attribute  vec4 vPosition;
+attribute  vec4 vColor;
+varying vec4 fColor;
+
+uniform mat4 modelViewMatrix;
+uniform mat4 projectionMatrix;
+
+void main() 
+{
+    gl_Position = projectionMatrix*modelViewMatrix*vPosition;
+    fColor = vColor;
+} 
+</script>
+
+<script id="fragment-shader" type="x-shader/x-fragment">
+precision mediump float;
+
+varying vec4 fColor;
+
+void main()
+{
+    gl_FragColor = fColor;
+}
+</script>
+
+<script type="text/javascript" src="../Common/webgl-utils.js"></script>
+<script type="text/javascript" src="../Common/initShaders.js"></script>
+<script type="text/javascript" src="../Common/MV.js"></script>
+<script type="text/javascript" src="hw3.js"></script>
+
+<body style="background-color:powderblue;">
+
+<div>
+<b>Name Surname:</b>Uğurcan Çırak, Emine Aydın -- <b>StudentID:</b> 190315051, 190315053
+
+</div>
+<table>
+	<tr>
+		<td>
+		<canvas id="gl-canvas" width="512" height="512">
+			Oops ... your browser doesn't support the HTML5 canvas element
+		</canvas>
+		</td>
+		<td>
+			<div> <strong>--- Camera Parameters --- </strong></div>
+			<div>
+			FOVY: 30<input id="fovy" type="range"
+			 min="30" max="120" step="5.0" value="45" />120
+			</div>
+			<div>
+			Camera Position, X: <input id="camX" type="number " size="2" 
+			 value="0" />, Y: <input id="camY" type="number " size="2" 
+			 value="0" />, Z: <input id="camZ" type="number " size="2" 
+			 value="5" />
+			</div> 
+			<div>
+			Target Position, X: <input id="tarX" type="number " size="2" 
+			 value="0" />, Y: <input id="tarY" type="number " size="2" 
+			 value="0" />, Z: <input id="tarZ" type="number " size="2" 
+			 value="0" />
+			</div> 
+			<br> <br>
+
+			<div> <strong>--- Object Parameters ---</strong></div>
+			<div> <strong>Translations</strong> </div>
+			<div>
+			Translate X: -1<input id="posX" type="range"
+			 min="-1" max="1" step="0.1" value="0" />1
+			</div> 
+			
+			<div>
+			Translate Y: -1<input id="posY" type="range"
+			 min="-1" max="1" step="0.1" value="0" />1
+			</div>
+			
+			<div>
+			Translate Z: -1<input id="posZ" type="range"
+			 min="-1" max="1" step="0.1" value="0" />1
+			</div>			
+			 <br>
+			 
+			<div> <strong>Scaling</strong> </div>			
+			<div>
+			Scale X: -2<input id="scaleX" type="range"
+			 min="-2" max="2" step="0.1" value="1" />2
+			</div> 
+			
+			<div>
+			Scale Y: -2<input id="scaleY" type="range"
+			 min="-2" max="2" step="0.1" value="1" />2
+			</div>	
+
+			<div>
+			Scale Z: -2<input id="scaleZ" type="range"
+			 min="-2" max="2" step="0.1" value="1" />2
+			</div>	
+			<br>			
+			
+			<div> <strong>Rotations</strong> </div>  
+			<div>
+			Rotation on X: -90<input id="rotX" type="range"
+			 min="-90" max="90" step="5.0" value="0" />90
+			</div> 
+			<div>
+			Rotation on Y: -90<input id="rotY" type="range"
+			 min="-90" max="90" step="5.0" value="0" />90
+			</div> 
+			<div>
+			Rotation on Z: -90<input id="rotZ" type="range"
+			 min="-90" max="90" step="5.0" value="0" />90
+			</div> 
+			<br>
+			
+			<div>
+			<button id = "ResetButton">Reset</button>
+			</div> 
+		</td>
+	</tr>
+</table>
+<div>
+
+
+
+</body>
+</html>
